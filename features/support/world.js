@@ -25,13 +25,17 @@ var getDriver = function() {
     return driver;
 };
 
-var World = function World(callback) {
+var World = function World() {
 
     var defaultTimeout = 20000;
     var screenshotPath = "screenshots";
 
     this.webdriver = webdriver;
     this.driver = driver;
+    
+    this.checkedTitles = [];
+    this.checkedTexts = [];
+    this.runNumber = 0;
 
     if(!fs.existsSync(screenshotPath)) {
         fs.mkdirSync(screenshotPath);
@@ -56,8 +60,6 @@ var World = function World(callback) {
             }, waitTimeout);
         }
     };
-
-    callback();
 };
 
 module.exports.World = World;

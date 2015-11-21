@@ -24,6 +24,16 @@ var myHooks = function () {
         driver.close();
         callback();
     });
+    
+    this.Before(function(scenario, callback) {
+        global.measurement = new Date().getTime();
+        callback();
+    });
+    this.After(function(scenario, callback) {
+        global.measurement = new Date().getTime() - global.measurement;
+        console.log('Scenario run time: ' + global.measurement + 'ms');
+        callback();
+    });
 
 };
 
