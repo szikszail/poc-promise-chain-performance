@@ -3,7 +3,7 @@ Feature: Promise chain performance test
   I try running test with or without promise chain
   So I can check which is the best solution
   
-  Scenario Outline: Checking a case
+  Scenario Outline: Checking run <type> promise chain <number> times
     Given test page is opened
     When test run <type> promise chain <number> times
     Then all titles have checked
